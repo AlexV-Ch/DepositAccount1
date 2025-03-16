@@ -7,7 +7,8 @@ public class DepositAccount extends BankAccount {
 
     @Override
     public void take(double amountToTake) {
-        if(lastIncome.until(LocalDate.now(), ChronoUnit.DAYS) > 28) {
+        if (lastIncome.plusMonths(1).compareTo(LocalDate.now()) < 0) {  // 1 способ
+        //if (lastIncome.plusMonths(1).isBefore(LocalDate.now())) {     // 2 спссоб
             super.take(amountToTake);
         }
     }
